@@ -122,7 +122,7 @@ int main( int argc, char** argv)
 {
   try
   {
-    CmdLine cmd("Reads an imput image file and changes the colors to the most similar valid lego color. Can output to a comma separated value file or text file of color codes, generate a lego mosaic in LDraw format, or render to an image file.", ' ', "1.0");
+    CmdLine cmd("Constructs and colors a ring made out of 1x1 plates.", ' ', "1.0");
 
     ValueArg<string> colorArg( "c", "color", "Color data", true, "data/colors.dat", "string");
     cmd.add( colorArg );
@@ -133,7 +133,7 @@ int main( int argc, char** argv)
     ValueArg<double> outer_radiusArg( "l", "outer_radius", "Outer circle radius", true, 10.0, "double");
     cmd.add( outer_radiusArg );
 
-    ValueArg<string> outputArg( "o", "output", "Output file (.ldr, .csv, .png, ect.)", true, "out.png", "string");
+    ValueArg<string> outputArg( "o", "output", "Output ldraw file", true, "out.png", "string");
     cmd.add( outputArg );
 
     ValueArg<string> pictureArg( "p", "picture", "Input image file (.png, .jpg, ect.)", true, "in.png", "string");
