@@ -1,5 +1,5 @@
 # lego-colorizer
-![Earth.gif](http://nathanbain.com/cgit/lego-colorizer.git/plain/examples/Earth.gif)
+![Earth.gif](https://raw.githubusercontent.com/nathanbain314/lego-colorizer/master/examples/Earth.gif)
 
 This is a tool to color lego objects. It is mainly meant to map spherical equirectanuglar images to objects but can also build rings systems for planets and lego mosaics from photos.
 # colorize
@@ -15,7 +15,7 @@ Use colors.dat in the data directory for the **-c** option. This was created usi
 The program colors around the origin, so you may need to move your object in an draw editor.
 # color_image
 Since there are only 68 colors in the lego palette that are valid colors for the sphere, some results can look much different from the input image. This will replace the colors of an image with the closest color from the lego palette. This can also be used to generate lego mosaics, both LDraw files and files of comma separated colors for building your own. Below is a simple color wheel showing the closest lego colors.  
-![Lego Color](http://nathanbain.com/cgit/lego-colorizer.git/plain/examples/lego_color.png)
+![Lego Color](https://raw.githubusercontent.com/nathanbain314/lego-colorizer/master/examples/lego_color.png)
 ## options
 - -i,  --input : The input image
 - -o, --output : The output file. If the file ends in *.ldr* then a mosaic will be build in LDraw format composed of 1x1 plates in the matching color. If the file ends in *.txt* or *.csv* then that file will be filled with comma separated values representing the colors in the mosaic. Otherwise it will save it as an image with the pixels changed to the most similar color.
@@ -39,8 +39,8 @@ Constructs and colors a ring made out of 1x1 plates. This is mostly useful for g
 This program is mostly unnecessary but can be used if you wish to generate your own color data file. Just change the two arrays at the top or the innermost loop of the **build_color_data()** function. It is currently set up to use 68 colors and the Delta E 2000 formula for color comparison.
 Run with ./build_data output.dat
 # examples
-![Large Earth](http://nathanbain.com/cgit/lego-colorizer.git/plain/examples/large_earth.png)
-![Block Earth](http://nathanbain.com/cgit/lego-colorizer.git/plain/examples/block_earth.png)
-![Outward Earth](http://nathanbain.com/cgit/lego-colorizer.git/plain/examples/outward_earth.png)
-![Plate Earth](http://nathanbain.com/cgit/lego-colorizer.git/plain/examples/plate_earth.png)
-![Cube](http://nathanbain.com/cgit/lego-colorizer.git/plain/examples/cube_earth.png)
+![Large Earth](https://raw.githubusercontent.com/nathanbain314/lego-colorizer/master/examples/large_earth.png)
+![Block Earth](https://raw.githubusercontent.com/nathanbain314/lego-colorizer/master/examples/block_earth.png)
+![Outward Earth](https://raw.githubusercontent.com/nathanbain314/lego-colorizer/master/examples/outward_earth.png)
+![Plate Earth](https://raw.githubusercontent.com/nathanbain314/lego-colorizer/master/examples/plate_earth.png)
+![Cube](https://raw.githubusercontent.com/nathanbain314/lego-colorizer/master/examples/cube_earth.png)
