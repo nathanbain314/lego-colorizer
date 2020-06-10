@@ -19,7 +19,7 @@ int main( int argc, char **argv )
 
     ValueArg<string> pictureArg( "p", "picture", "Picture to map", false, "none", "string", cmd);
 
-    ValueArg<string> outputArg( "o", "output", "Output LDraw file (.ldr)", false, "out.ldr", "string", cmd);
+    ValueArg<string> outputArg( "o", "output", "Output LDraw file (.ldr)", true, "out.ldr", "string", cmd);
 
     ValueArg<string> inputArg( "i", "input", "Input LDraw file (.ldr)", false, "", "string", cmd);
 
