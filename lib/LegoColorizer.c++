@@ -83,13 +83,16 @@ Vertex equi_project( double x, double y, double z, double width, double height)
 
 // Takes array of pixels, width and height of the array, and array of color best matching colors for all rgb values.
 // Returns the most common matching color for that group of pixels.
-int closest_color( float *data, float *colors, vector< Vertex > &mask, int width, vector< int > &colorsToUse )
+int closest_color( float *data, float *colors, vector< Vertex > &mask, int width, int height, vector< int > &colorsToUse )
 {
   float avgColor[3] = {0.0,0.0,0.0};
   for( int i = 0; i < mask.size(); ++i )
   {
     int y = mask[i].y;
     int x = mask[i].x;
+
+    if( x < 0 || x >= width ) continue;
+    if( y < 0 || y >= height ) continue;
 
     for( int k = 0; k < 3; ++k )
     {
@@ -220,6 +223,8 @@ void addMask( vector< Vertex > &points, vector< Vertex > &mask )
     if( points[i].y < bounds[1] ) bounds[1] = points[i].y;
     if( points[i].x > bounds[2] ) bounds[2] = points[i].x;
     if( points[i].y > bounds[3] ) bounds[3] = points[i].y;
+
+    mask.push_back( points[i] );
   }
 
   for( double i = bounds[1]; i < bounds[3]+1.0; ++i )
@@ -428,7 +433,7 @@ string draw_on_image( string s, float *c, float *colors, int width, int height, 
         do{ getline( buffer, l, ' '); }while( l.empty() );
         do{ getline( buffer, l, ' '); }while( l.empty() );
 
-        output << "1 " << closest_color( c, colors, mask, width, colorsToUse );
+        output << "1 " << closest_color( c, colors, mask, width, height, colorsToUse );
 
         for( int i = 0; i < 13; ++i)
         {
@@ -551,7 +556,7 @@ string create_circle( double inner_radius, double outer_radius, float *data, flo
           }
         }
 
-        int color = closest_color( data, colors, mask, width, colorsToUse );
+        int color = closest_color( data, colors, mask, width, height, colorsToUse );
 
         if( color != 0)
         {
@@ -594,7 +599,7 @@ string create_circle( double inner_radius, double outer_radius, float *data, flo
           }
         }
 
-        int color = closest_color( data, colors, mask, width, colorsToUse );
+        int color = closest_color( data, colors, mask, width, height, colorsToUse );
 
         if( color != 0)
         {
